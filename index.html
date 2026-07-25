@@ -7,6 +7,19 @@
   <meta name="description"
     content="Sakibul Huda Onnay — I take messy requirements and turn them into platforms that ship." />
   <title>Onnay — Software Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://shonnay.github.io/onnay-portfolio/" />
+  <meta property="og:title" content="Onnay — Software Engineer" />
+  <meta property="og:description" content="Sakibul Huda Onnay — I take messy requirements and turn them into platforms that ship." />
+  <meta property="og:image" content="https://shonnay.github.io/onnay-portfolio/assets/onnoy-portfolio.png" />
+  <meta property="og:site_name" content="Onnay" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Onnay — Software Engineer" />
+  <meta name="twitter:description" content="Sakibul Huda Onnay — I take messy requirements and turn them into platforms that ship." />
+  <meta name="twitter:image" content="https://shonnay.github.io/onnay-portfolio/assets/onnoy-portfolio.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
@@ -42,6 +55,17 @@
       scroll-behavior: smooth;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     body {
       background: var(--black);
       color: var(--text);
@@ -75,8 +99,7 @@
       justify-content: space-between;
       padding: 0 32px;
       border-bottom: 1px solid var(--line);
-      background: rgba(10, 10, 10, 0.92);
-      backdrop-filter: blur(12px);
+      background: rgba(8, 8, 8, 0.97);
     }
 
     .nav-id {
@@ -911,6 +934,69 @@
       margin-top: 16px;
     }
 
+    .tier-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--acid);
+      opacity: 0.55;
+      margin: 36px 0 12px;
+    }
+
+    .route-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      grid-column: 1 / -1;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .rd-node {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 3px;
+      padding: 7px 11px;
+      font-size: 11px;
+      color: var(--sub);
+      white-space: nowrap;
+    }
+
+    .rd-node.acid {
+      border-color: var(--acid);
+      color: var(--acid);
+    }
+
+    .rd-node.small {
+      font-size: 10px;
+      padding: 5px 9px;
+    }
+
+    .rd-arrow {
+      color: var(--acid);
+      opacity: 0.5;
+      font-size: 14px;
+    }
+
+    .rd-branch {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border: 1px dashed var(--line);
+      padding: 7px;
+      border-radius: 4px;
+    }
+
+    .rd-or {
+      font-size: 9px;
+      text-align: center;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
     .build-item.open .build-detail {
       display: block;
     }
@@ -1294,6 +1380,82 @@
       color: var(--acid);
     }
 
+    .glitch-text {
+      position: relative;
+      display: inline-block;
+      animation: glitch-jitter 0.55s steps(2, end);
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0; top: 0;
+      width: 100%;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .glitch-text::before {
+      color: #ff2e6b;
+      animation: glitch-slice-1 0.55s steps(2, end);
+      mix-blend-mode: screen;
+    }
+
+    .glitch-text::after {
+      color: #33e0ff;
+      animation: glitch-slice-2 0.55s steps(2, end);
+      mix-blend-mode: screen;
+    }
+
+    @keyframes glitch-jitter {
+      0% { transform: translateX(0); }
+      15% { transform: translateX(-2px); }
+      30% { transform: translateX(2px); }
+      45% { transform: translateX(-1px); }
+      60% { transform: translateX(1px); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes glitch-slice-1 {
+      0% { transform: translate(0, 0); opacity: 0.8; }
+      20% { transform: translate(-3px, 1px); }
+      40% { transform: translate(3px, -1px); }
+      60% { transform: translate(-2px, 0); }
+      100% { transform: translate(0, 0); opacity: 0; }
+    }
+
+    .glitch-text.heavy {
+      animation: glitch-jitter-heavy 0.9s steps(3, end);
+    }
+
+    .glitch-text.heavy::before {
+      animation: glitch-slice-1 0.45s steps(3, end) 2;
+    }
+
+    .glitch-text.heavy::after {
+      animation: glitch-slice-2 0.45s steps(3, end) 2;
+    }
+
+    @keyframes glitch-jitter-heavy {
+      0% { transform: translateX(0); opacity: 1; }
+      10% { transform: translateX(-4px); opacity: .5; }
+      20% { transform: translateX(3px); opacity: 1; }
+      30% { transform: translateX(-3px); opacity: .3; }
+      40% { transform: translateX(4px); opacity: 1; }
+      55% { transform: translateX(-2px); opacity: .6; }
+      70% { transform: translateX(2px); opacity: 1; }
+      100% { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes glitch-slice-2 {
+      0% { transform: translate(0, 0); opacity: 0.8; }
+      20% { transform: translate(3px, -1px); }
+      40% { transform: translate(-3px, 1px); }
+      60% { transform: translate(2px, 0); }
+      100% { transform: translate(0, 0); opacity: 0; }
+    }
+
     .t-cursor {
       display: inline-block;
       width: 7px;
@@ -1479,6 +1641,7 @@
       <a href="https://www.linkedin.com/in/sakibul-huda-onnay" target="_blank" rel="noopener" class="pill">LinkedIn
         ↗</a>
       <a href="mailto:onnoy29@gmail.com" class="pill">Email</a>
+      <a href="assets/SakibulHudaOnnayResume.pdf" target="_blank" rel="noopener" class="pill">Resume ↗</a>
     </div>
   </section>
 
@@ -1696,6 +1859,8 @@
         <p>Real projects, real problems. Click any build to see the chaos that went in — and what came out.</p>
       </div>
 
+      <div class="tier-label reveal">Hackathon-weight</div>
+
       <div class="build-item reveal" onclick="toggleBuild(this)">
         <div class="build-left">
           <div class="build-index">01 / Featured</div>
@@ -1744,6 +1909,26 @@
               </ul>
             </div>
           </div>
+
+          <div class="route-diagram">
+            <div class="detail-label" style="width:100%;margin-bottom:4px;">How a request gets routed</div>
+            <div class="rd-node">Task in</div>
+            <div class="rd-arrow">→</div>
+            <div class="rd-node">4-layer complexity classifier</div>
+            <div class="rd-arrow">→</div>
+            <div class="rd-node">Confidence gate</div>
+            <div class="rd-arrow">→</div>
+            <div class="rd-branch">
+              <div class="rd-node small">Local · Ollama / ROCm</div>
+              <div class="rd-or">or, on escalation</div>
+              <div class="rd-node small">Remote · Gemini / Fireworks</div>
+            </div>
+            <div class="rd-arrow">→</div>
+            <div class="rd-node">SSE token stream</div>
+            <div class="rd-arrow">→</div>
+            <div class="rd-node acid">VoxRouter Score</div>
+          </div>
+
           <div class="build-links">
             <a href="https://voxrouter-1.onrender.com" target="_blank" rel="noopener" class="build-link">Live ↗</a>
             <a href="https://github.com/SHOnnay/voxrouter" target="_blank" rel="noopener" class="build-link">GitHub
@@ -1752,6 +1937,8 @@
           </div>
         </div>
       </div>
+
+      <div class="tier-label reveal">Personal projects</div>
 
       <div class="build-item reveal" onclick="toggleBuild(this)">
         <div class="build-left">
@@ -1992,10 +2179,18 @@
     (function () {
       const body = document.getElementById('terminalBody');
       if (!body) return;
+      const termWindow = document.querySelector('.terminal-window');
+      let terminalVisible = true;
+      if (termWindow) {
+        const termObs = new IntersectionObserver((entries) => {
+          entries.forEach(e => { terminalVisible = e.isIntersecting; });
+        }, { threshold: 0.1 });
+        termObs.observe(termWindow);
+      }
       const SEQUENCE = [
         { prefix: '$', pc: 'prompt', text: 'git clone chaos-requirements.git', delay: 0 },
         { prefix: '→', pc: 'dim', text: 'Cloning into project...', delay: 400 },
-        { prefix: '!', pc: 'warn', text: 'WARNING: scope undefined. Proceeding.', delay: 900 },
+        { prefix: '!', pc: 'warn', text: 'WARNING: scope undefined. Proceeding.', delay: 900, glitch: true },
         { prefix: '$', pc: 'prompt', text: 'onnay analyze --domain requirements.txt', delay: 1500 },
         { prefix: '→', pc: 'dim', text: 'Reading client brief...', delay: 2000 },
         { prefix: '→', pc: 'dim', text: 'Mapping entities and relationships...', delay: 2500 },
@@ -2021,7 +2216,9 @@
       const LOOP = [
         { prefix: '→', pc: 'dim', text: 'Receiving user feedback...' },
         { prefix: '→', pc: 'dim', text: 'Analysing edge cases...' },
-        { prefix: '!', pc: 'warn', text: 'New requirement from client.' },
+        { prefix: '!', pc: 'warn', text: 'New requirement from client.', glitch: true },
+        { prefix: '✕', pc: 'warn', text: 'SIG_LOST // retry × 3 // core desync', glitch: true, heavy: true },
+        { prefix: '✓', pc: 'ok', text: 'Recovered. State restored.', hl: true },
         { prefix: '→', pc: 'dim', text: 'Scoping change...' },
         { prefix: '✓', pc: 'ok', text: 'Change scoped. Iteration queued.', hl: true },
         { prefix: '→', pc: 'dim', text: 'Monitoring live traffic...' },
@@ -2031,7 +2228,7 @@
       let loopIdx = 0;
       let cursor = null;
       function makeCursor() { const c = document.createElement('span'); c.className = 't-cursor'; return c; }
-      function addLine(prefix, prefixClass, text, highlight, acid) {
+      function addLine(prefix, prefixClass, text, highlight, acid, glitch, heavy) {
         if (cursor && cursor.parentNode) cursor.parentNode.removeChild(cursor);
         const line = document.createElement('div');
         line.className = 't-line';
@@ -2045,10 +2242,34 @@
         const all = body.querySelectorAll('.t-line');
         if (all.length > MAX_LINES) { all[0].style.transition = 'opacity 0.3s ease'; all[0].style.opacity = '0'; setTimeout(() => all[0].remove(), 320); }
         requestAnimationFrame(() => line.classList.add('show'));
+        if (glitch) {
+          txt.setAttribute('data-text', text);
+          txt.classList.add('glitch-text');
+          if (heavy) {
+            txt.classList.add('heavy');
+            const chars = '#$%&01_/\\|<>■▓';
+            let ticks = 0;
+            const maxTicks = 7;
+            const scrambleInt = setInterval(() => {
+              ticks++;
+              if (ticks >= maxTicks) {
+                clearInterval(scrambleInt);
+                txt.textContent = text;
+                txt.appendChild(cursor);
+                return;
+              }
+              txt.textContent = text.split('').map(ch => ch === ' ' ? ' ' : (Math.random() < 0.5 ? chars[Math.floor(Math.random() * chars.length)] : ch)).join('');
+            }, 70);
+          }
+          setTimeout(() => txt.classList.remove('glitch-text', 'heavy'), heavy ? 950 : 650);
+        }
         cursor = makeCursor(); txt.appendChild(cursor);
       }
-      SEQUENCE.forEach(({ prefix, pc, text, delay, hl, acid }) => { setTimeout(() => addLine(prefix, pc, text, hl, acid), delay); });
-      function loopNext() { const entry = LOOP[loopIdx % LOOP.length]; addLine(entry.prefix, entry.pc, entry.text, entry.hl, false); loopIdx++; setTimeout(loopNext, 1200 + Math.random() * 1400); }
+      SEQUENCE.forEach(({ prefix, pc, text, delay, hl, acid, glitch }) => { setTimeout(() => addLine(prefix, pc, text, hl, acid, glitch), delay); });
+      function loopNext() {
+        const entry = LOOP[loopIdx % LOOP.length]; addLine(entry.prefix, entry.pc, entry.text, entry.hl, false, entry.glitch, entry.heavy); loopIdx++;
+        setTimeout(() => { if (terminalVisible) loopNext(); else setTimeout(loopNext, 1500); }, 1200 + Math.random() * 1400);
+      }
       setTimeout(loopNext, 14000);
     })();
   </script>
