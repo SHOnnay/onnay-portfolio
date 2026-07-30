@@ -1940,9 +1940,67 @@
 
       <div class="tier-label reveal">Personal projects</div>
 
+      <div class="tier-label reveal">Personal projects</div>
+
       <div class="build-item reveal" onclick="toggleBuild(this)">
         <div class="build-left">
           <div class="build-index">02 / Featured</div>
+          <div class="build-title">FutureDiff</div>
+          <div class="build-tag-line">A transaction and safety layer for AI-agent-authored changes</div>
+          <div class="build-tags">
+            <span class="btag">Go</span><span class="btag">SQLite</span><span class="btag">Rootless OCI</span>
+            <span class="btag">GitHub API</span><span class="btag">Slack API</span><span class="btag">CLI</span>
+          </div>
+        </div>
+        <div class="build-right">
+          <div class="build-status active"><span class="dot"></span> Local build</div>
+          <div class="build-expand">+</div>
+        </div>
+        <div class="build-detail">
+          <div class="detail-grid">
+            <div class="detail-block">
+              <div class="detail-label">The chaos</div>
+              <p>AI agents can now propose and push real changes — code, PRs, Slack messages — with no gap between
+                "the agent decided this" and "it's live." No staging, no cryptographic proof of what's about to
+                happen, no safe way back out.</p>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">What shipped</div>
+              <p>A local-first transaction layer: agent-proposed changes get staged in isolation, verified
+                deterministically, and human approval is cryptographically bound to the exact digest of that change
+                — only then does it release through controlled adapters (GitHub branch, draft PR, Slack), with
+                idempotent receipts and crash-safe recovery. 70 Go binaries, own CLI, cooperative and rootless-OCI
+                execution modes.</p>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">My approach</div>
+              <ul>
+                <li>Modeled it as a state machine: stage → verify → approve → commit</li>
+                <li>Bound approval to a cryptographic digest, not a timestamp or a human's memory</li>
+                <li>Built cooperative (local review) and enforced (rootless OCI) modes separately</li>
+                <li>Treated evidence, audit, and retention as first-class, not an afterthought</li>
+              </ul>
+            </div>
+            <div class="detail-block">
+              <div class="detail-label">What I learned</div>
+              <ul>
+                <li>Designing trust that's bound to exact material, not assumed state</li>
+                <li>The real gap between "runs on my machine" and provably production-ready</li>
+                <li>Scoping a systems project large enough to force real architecture decisions</li>
+                <li>144 test files later — testing discipline at a scale I hadn't done before</li>
+              </ul>
+            </div>
+          </div>
+          <div class="build-links">
+            <a href="https://github.com/SHOnnay/futurediff" target="_blank" rel="noopener" class="build-link">GitHub
+              ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="build-item reveal" onclick="toggleBuild(this)">
+        <div class="build-left">
+          <div class="build-index">03 / Featured</div>
           <div class="build-title">ZapShift</div>
           <div class="build-tag-line">Parcel delivery platform — full-stack MERN</div>
           <div class="build-tags">
@@ -1985,7 +2043,7 @@
 
       <div class="build-item reveal reveal-d2" onclick="toggleBuild(this)">
         <div class="build-left">
-          <div class="build-index">03</div>
+          <div class="build-index">04</div>
           <div class="build-title">AI Face Recognition Attendance</div>
           <div class="build-tag-line">ML inference served via REST — FaceNet + Flask</div>
           <div class="build-tags">
